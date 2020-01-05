@@ -27,6 +27,7 @@
             app:layout_constraintStart_toEndOf="@+id/cocktailType"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.976"
+            android:text="@string/category"
             tools:text="Category" />
 
         <TextView
@@ -34,11 +35,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:text="@string/cocktail_name"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             app:layout_constraintBottom_toTopOf="@+id/cocktailType"
             app:layout_constraintStart_toEndOf="@+id/cocktailImage"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/cocktailImage"
@@ -58,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="12dp"
-            android:text="Type"
+            android:text="@string/type"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cocktailImage" />
 

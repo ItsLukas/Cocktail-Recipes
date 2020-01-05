@@ -8,10 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic
-// https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=15395
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 
 interface ApiService {

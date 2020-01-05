@@ -49,10 +49,18 @@ class CocktailDetailedFragment : Fragment(), KodeinAware {
 
             cocktailDetailedRecipe.observe(this@CocktailDetailedFragment, Observer { recipe ->
                 if (recipe == null) return@Observer
+
                 (activity as? AppCompatActivity)?.supportActionBar?.title = recipe.strDrink
                 GlideApp.with(this@CocktailDetailedFragment)
                     .load(recipe.strDrinkThumb)
                     .into(cocktailDetailedImage)
+
+                instructions.text = recipe.strInstructions
+                cocktailDetailedName.text = recipe.strDrink
+                cocktailDetailedCategory.text = recipe.strCategory
+                cocktailDetailedType.text = recipe.strAlcoholic
+                cocktailDetailedGlass.text = recipe.strGlass
+
                 //Ingredients
                 ingredient1.text = recipe.strIngredient1
                 ingredient2.text = recipe.strIngredient2
@@ -86,8 +94,6 @@ class CocktailDetailedFragment : Fragment(), KodeinAware {
                 measurement13.text = recipe.strMeasure13
                 measurement14.text = recipe.strMeasure14
                 measurement15.text = recipe.strMeasure15
-
-                instructions.text = recipe.strInstructions
             })
         }
     }
