@@ -13,7 +13,7 @@ class CocktailNetworkDataSourceImpl(
         get() = _downloadedCocktailRecipes
 
     override suspend fun fetchCocktailRecipes(filter: String) {
-       val fetchedCocktailRecipes = apiService.getCocktailRecipesAsync(filter).await()
+        val fetchedCocktailRecipes = apiService.getCocktailRecipesAsync(filter).await()
         _downloadedCocktailRecipes.postValue(fetchedCocktailRecipes)
     }
 }

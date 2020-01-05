@@ -8,7 +8,7 @@
         android:id="@+id/cocktailsFragment"
         android:name="com.example.cocktailRecipes.ui.cocktailRecipes.list.CocktailsFragment"
         android:label="cocktails_fragment"
-        tools:layout="@layout/cocktails_fragment" >
+        tools:layout="@layout/cocktails_fragment">
         <action
             android:id="@+id/actionDetail"
             app:destination="@id/cocktailDetailedFragment" />
@@ -17,7 +17,7 @@
         android:id="@+id/cocktailDetailedFragment"
         android:name="com.example.cocktailRecipes.ui.cocktailRecipes.detailed.CocktailDetailedFragment"
         android:label="cocktail_detailed_fragment"
-        tools:layout="@layout/cocktail_detailed_fragment" >
+        tools:layout="@layout/cocktail_detailed_fragment">
         <argument
             android:name="recipeId"
             app:argType="integer" />

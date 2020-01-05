@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="Filter Letter">
+    <PreferenceCategory android:title="Filter Letter">
         <EditTextPreference
+            android:defaultValue="A"
             android:key="FILTER_LETTER"
-            android:title="Choose filter letter"
             android:summary="The cocktails will be filtered according to the chosen letter"
-            android:defaultValue="A"/>
+            android:title="Choose filter letter" />
 
     </PreferenceCategory>
 </PreferenceScreen>

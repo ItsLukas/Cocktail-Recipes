@@ -26,5 +26,5 @@ interface CocktailDao {
     fun deleteAllCocktailRecipes()
 
     @Query("SELECT * FROM cocktail LIMIT 1")
-    fun getFirstItem() : DetailedCocktailRecipe
+    fun getFirstItem(): DetailedCocktailRecipe
 }

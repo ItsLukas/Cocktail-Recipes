@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
@@ -41,10 +40,11 @@ class CocktailsFragment : Fragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? AppCompatActivity)?.supportActionBar?.title = "Cocktails"
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(CocktailsViewModel::class.java)
+        viewModel =
+            ViewModelProviders.of(this, viewModelFactory).get(CocktailsViewModel::class.java)
 
 
-        GlobalScope.launch (Dispatchers.Main){
+        GlobalScope.launch(Dispatchers.Main) {
             val cocktailRecipes = viewModel.cocktailRecipes.await()
 
             cocktailRecipes.observe(this@CocktailsFragment, Observer { recipes ->
@@ -53,28 +53,31 @@ class CocktailsFragment : Fragment(), KodeinAware {
             })
         }
     }
-    private fun List<Drink>.toCocktailRecipeItems(): List<CocktailRecipeItem>{
+
+    private fun List<Drink>.toCocktailRecipeItems(): List<CocktailRecipeItem> {
         return this.map {
             CocktailRecipeItem(it)
         }
     }
 
-    private fun initRecyclerView(items: List<CocktailRecipeItem>){
+    private fun initRecyclerView(items: List<CocktailRecipeItem>) {
         val groupAdapter = GroupAdapter<ViewHolder>().apply {
             addAll(items)
         }
 
-        recyclerView.apply { layoutManager = LinearLayoutManager(this@CocktailsFragment.context)
-            adapter = groupAdapter}
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(this@CocktailsFragment.context)
+            adapter = groupAdapter
+        }
 
         groupAdapter.setOnItemClickListener { item, view ->
-            (item as? CocktailRecipeItem)?.let{
+            (item as? CocktailRecipeItem)?.let {
                 showCocktailDetailedRecipe(it.cocktailRecipeEntry.idDrink.toInt(), view)
             }
         }
     }
 
-    private fun showCocktailDetailedRecipe(recipeId: Int, view: View){
+    private fun showCocktailDetailedRecipe(recipeId: Int, view: View) {
         val actionDetail = CocktailsFragmentDirections.actionDetail(recipeId)
         Navigation.findNavController(view).navigate(actionDetail)
     }

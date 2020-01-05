@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-        navigationController = Navigation.findNavController(this,
+        navigationController = Navigation.findNavController(
+            this,
             R.id.navigationFragment
         )
 
