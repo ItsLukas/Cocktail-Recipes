@@ -12,6 +12,6 @@ class FilterProviderImpl(context: Context) : FilterProvider {
 
     override fun getFilterLetter(): String {
         val filterLetter = preferences.getString("FILTER_LETTER", "A")
-        return filterLetter.toString()
+        return filterLetter?.first().toString()
     }
 }

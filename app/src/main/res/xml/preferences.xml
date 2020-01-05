@@ -4,8 +4,9 @@
         <EditTextPreference
             android:defaultValue="A"
             android:key="FILTER_LETTER"
-            android:summary="The cocktails will be filtered according to the chosen letter"
-            android:title="Choose filter letter" />
+            android:summary="The cocktails will be filtered according to the chosen letter (First will be selected if provided more)"
+            android:title="Choose one filter letter"
+            />
 
     </PreferenceCategory>
 </PreferenceScreen>

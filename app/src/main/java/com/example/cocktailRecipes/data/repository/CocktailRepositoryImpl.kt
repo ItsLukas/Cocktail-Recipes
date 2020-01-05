@@ -1,5 +1,6 @@
 package com.example.cocktailRecipes.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.cocktailRecipes.data.database.CocktailDao
 import com.example.cocktailRecipes.data.database.entity.DetailedCocktailRecipe
@@ -29,7 +30,11 @@ class CocktailRepositoryImpl(
     private fun persistFetchedCocktailRecipes(fetchedRecipes: CocktailsResponse) {
         GlobalScope.launch(Dispatchers.IO) {
             val cocktailRecipesList = fetchedRecipes.drinks
-            cocktailDao.upsert(cocktailRecipesList)
+            if (cocktailRecipesList.isNullOrEmpty()) {
+                return@launch
+            } else {
+                cocktailDao.upsert(cocktailRecipesList)
+            }
         }
     }
 
