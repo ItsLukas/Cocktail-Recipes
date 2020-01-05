@@ -46,9 +46,12 @@ class CocktailsFragment : Fragment(), KodeinAware {
 
         GlobalScope.launch(Dispatchers.Main) {
             val cocktailRecipes = viewModel.cocktailRecipes.await()
-
             cocktailRecipes.observe(this@CocktailsFragment, Observer { recipes ->
-                if (recipes == null) return@Observer
+                if (recipes.isNullOrEmpty()) {
+                    errorMessage.text = "No Cocktail Recipes Were found with chosen filters"
+                    return@Observer
+                }
+                errorMessage.text = ""
                 initRecyclerView(recipes.toCocktailRecipeItems())
             })
         }
