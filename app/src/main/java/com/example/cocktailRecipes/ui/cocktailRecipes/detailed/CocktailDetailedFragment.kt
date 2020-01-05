@@ -13,14 +13,12 @@ import androidx.lifecycle.Observer
 import com.example.cocktailRecipes.R
 import com.example.cocktailRecipes.internal.GlideApp
 import kotlinx.android.synthetic.main.cocktail_detailed_fragment.*
-import kotlinx.android.synthetic.main.cocktail_recipe_item.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.factory
-import org.kodein.di.generic.instance
 
 class CocktailDetailedFragment : Fragment(), KodeinAware {
 
@@ -40,11 +38,12 @@ class CocktailDetailedFragment : Fragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val safeArgs = arguments?.let{CocktailDetailedFragmentArgs.fromBundle(it)}
+        val safeArgs = arguments?.let { CocktailDetailedFragmentArgs.fromBundle(it) }
         val recipeId = safeArgs?.recipeId
-        viewModel = ViewModelProviders.of(this, viewModelFactoryInstanceFactory(recipeId!!)).get(CocktailDetailedViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactoryInstanceFactory(recipeId!!))
+            .get(CocktailDetailedViewModel::class.java)
 
-        GlobalScope.launch (Dispatchers.Main){
+        GlobalScope.launch(Dispatchers.Main) {
             val cocktailDetailedRecipe = viewModel.cocktailDetailedRecipe.await()
 
             cocktailDetailedRecipe.observe(this@CocktailDetailedFragment, Observer { recipe ->

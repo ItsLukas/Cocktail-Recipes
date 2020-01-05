@@ -9,7 +9,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-
 interface ApiService {
 
     @GET("search.php")
@@ -18,7 +17,7 @@ interface ApiService {
     ): Deferred<CocktailsResponse>
 
     companion object {
-        operator fun invoke() : ApiService {
+        operator fun invoke(): ApiService {
             return Retrofit.Builder()
                 .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())

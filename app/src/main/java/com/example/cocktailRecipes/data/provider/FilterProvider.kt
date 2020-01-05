@@ -1,5 +1,5 @@
 package com.example.cocktailRecipes.data.provider
 
 interface FilterProvider {
-    fun getFilterLetter() : String
+    fun getFilterLetter(): String
 }

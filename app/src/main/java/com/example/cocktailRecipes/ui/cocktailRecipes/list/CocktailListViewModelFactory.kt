@@ -6,7 +6,7 @@ import com.example.cocktailRecipes.data.repository.CocktailRepository
 
 class CocktailListViewModelFactory(
     private val cocktailRepository: CocktailRepository
-): ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return CocktailsViewModel(cocktailRepository) as T

@@ -1,6 +1,5 @@
 package com.example.cocktailRecipes.data.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.cocktailRecipes.data.database.CocktailDao
 import com.example.cocktailRecipes.data.database.entity.DetailedCocktailRecipe
@@ -42,14 +41,14 @@ class CocktailRepositoryImpl(
     }
 
     override suspend fun getDetailedCocktailRecipe(recipeId: Int): LiveData<DetailedCocktailRecipe> {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             initData()
             return@withContext cocktailDao.getDetailedCocktailRecipe(recipeId)
         }
     }
 
     private suspend fun initData() {
-        if (isFetchNeeded()){
+        if (isFetchNeeded()) {
             fetchCocktailRecipes()
         }
     }
@@ -59,7 +58,7 @@ class CocktailRepositoryImpl(
     }
 
     private fun isFetchNeeded(): Boolean {
-        if (cocktailDao.getCocktailsCount() <= 0){
+        if (cocktailDao.getCocktailsCount() <= 0) {
             return true
         }
 
@@ -67,7 +66,7 @@ class CocktailRepositoryImpl(
         val filterLetter = filterProvider.getFilterLetter().toUpperCase()
         val cocktailFirstLetter = cocktailName.first().toUpperCase().toString()
 
-        if (filterLetter != cocktailFirstLetter){
+        if (filterLetter != cocktailFirstLetter) {
             cocktailDao.deleteAllCocktailRecipes()
             return true
         }

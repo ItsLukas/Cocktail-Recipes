@@ -11,14 +11,19 @@ abstract class CocktailsDatabase : RoomDatabase() {
     abstract fun cocktailRecipesDao(): CocktailDao
 
     companion object {
-        @Volatile private var instance: CocktailsDatabase? = null
+        @Volatile
+        private var instance: CocktailsDatabase? = null
         private val LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
             instance ?: buildDatabase(context).also { instance = it }
         }
 
-        private fun buildDatabase(context: Context) = Room.databaseBuilder(context.applicationContext, CocktailsDatabase::class.java, "cocktailRecipes.db").build()
+        private fun buildDatabase(context: Context) = Room.databaseBuilder(
+            context.applicationContext,
+            CocktailsDatabase::class.java,
+            "cocktailRecipes.db"
+        ).build()
 
     }
 }
