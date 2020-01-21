@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.cocktailRecipes.data.database.entity.DetailedCocktailRecipe" />
+    </data>
+
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -31,6 +39,7 @@
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
             android:textSize="16sp"
+            android:text="@{recipe.strMeasure3}"
             app:layout_constraintStart_toEndOf="@+id/ingredient3"
             app:layout_constraintTop_toBottomOf="@+id/measurement2" />
 
@@ -40,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient2}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient1" />
@@ -50,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient4}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient3" />
@@ -60,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient6}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient5" />
@@ -70,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="12dp"
+            android:text="@{recipe.strIngredient1}"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient8}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient7" />
@@ -91,6 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient9}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient8" />
@@ -101,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient10}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient9" />
@@ -110,6 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:text="@{recipe.strIngredient11}"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,6 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient12}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient11" />
@@ -131,6 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient13}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient12" />
@@ -141,6 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient14}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient13" />
@@ -151,6 +171,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient15}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient14" />
@@ -162,6 +183,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure1}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient1"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -172,6 +194,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure4}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient4"
             app:layout_constraintTop_toBottomOf="@+id/measurement3" />
@@ -182,6 +205,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure10}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient10"
             app:layout_constraintTop_toBottomOf="@+id/measurement9" />
@@ -192,6 +216,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure8}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient7"
             app:layout_constraintTop_toBottomOf="@+id/measurement7" />
@@ -202,6 +227,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure12}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient12"
             app:layout_constraintTop_toBottomOf="@+id/measurement11" />
@@ -212,6 +238,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure15}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient15"
             app:layout_constraintTop_toBottomOf="@+id/measurement14" />
@@ -222,6 +249,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure11}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient11"
             app:layout_constraintTop_toBottomOf="@+id/measurement10" />
@@ -232,6 +260,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure7}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient9"
             app:layout_constraintTop_toBottomOf="@+id/measurement6" />
@@ -240,6 +269,7 @@
             android:id="@+id/measurement6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{recipe.strMeasure6}"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
             android:textSize="16sp"
@@ -252,6 +282,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure13}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient13"
             app:layout_constraintTop_toBottomOf="@+id/measurement12" />
@@ -262,6 +293,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure14}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient14"
             app:layout_constraintTop_toBottomOf="@+id/measurement13" />
@@ -272,6 +304,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure9}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient8"
             app:layout_constraintTop_toBottomOf="@+id/measurement8" />
@@ -282,6 +315,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure5}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient5"
             app:layout_constraintTop_toBottomOf="@+id/measurement4" />
@@ -292,6 +326,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient7}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient6" />
@@ -302,6 +337,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient5}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient4" />
@@ -312,6 +348,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strIngredient3}"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredient2" />
@@ -322,6 +359,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:textColor="@android:color/black"
+            android:text="@{recipe.strMeasure2}"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ingredient2"
             app:layout_constraintTop_toBottomOf="@+id/measurement1" />
@@ -334,7 +372,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:lineSpacingExtra="2sp"
-            android:text="@string/instructions"
+            android:text="@{recipe.strInstructions}"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -346,7 +384,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/category"
+            android:text="@{recipe.strCategory}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -358,7 +396,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/type"
+            android:text="@{recipe.strAlcoholic}"
             app:layout_constraintStart_toEndOf="@+id/cocktailDetailedImage"
             app:layout_constraintTop_toBottomOf="@+id/cocktailDetailedName" />
 
@@ -368,9 +406,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
-            android:text="@string/cocktail_name"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textStyle="bold"
+            android:text="@{recipe.strDrink}"
             app:layout_constraintStart_toEndOf="@+id/cocktailDetailedImage"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -379,7 +417,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="@string/glass_type"
+            android:text="@{recipe.strGlass}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.942"
@@ -412,3 +450,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+</layout>
