@@ -1,19 +1,27 @@
 package com.example.cocktailRecipes.data.network
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.example.cocktailRecipes.data.network.response.CocktailsResponse
+import android.util.Log
+import com.example.cocktailRecipes.data.database.entity.Drink
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.HttpException
 
 class CocktailNetworkDataSourceImpl(
     private val apiService: ApiService
 ) : CocktailNetworkDataSource {
 
-    private val _downloadedCocktailRecipes = MutableLiveData<CocktailsResponse>()
-    override val downloadedCocktailRecipes: LiveData<CocktailsResponse>
-        get() = _downloadedCocktailRecipes
-
-    override suspend fun fetchCocktailRecipes(filter: String) {
-        val fetchedCocktailRecipes = apiService.getCocktailRecipesAsync(filter).await()
-        _downloadedCocktailRecipes.postValue(fetchedCocktailRecipes)
-    }
+    override suspend fun getCocktailRecipes(filter: String): List<Drink> =
+        withContext(Dispatchers.IO) {
+            val request = apiService.getCocktailRecipesAsync(filter)
+            try {
+                val response = request.await()
+                return@withContext response.drinks
+            } catch (exception: HttpException) {
+                Log.e("RequestError", "Error: ${exception.printStackTrace()}")
+                return@withContext emptyList<Drink>()
+            } catch (exception: Throwable) {
+                Log.e("RequestError", "Error: ${exception.printStackTrace()}")
+                return@withContext emptyList<Drink>()
+            }
+        }
 }

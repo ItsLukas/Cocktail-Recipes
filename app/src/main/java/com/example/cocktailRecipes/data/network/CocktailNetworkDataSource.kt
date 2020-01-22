@@ -1,12 +1,7 @@
 package com.example.cocktailRecipes.data.network
 
-import androidx.lifecycle.LiveData
-import com.example.cocktailRecipes.data.network.response.CocktailsResponse
+import com.example.cocktailRecipes.data.database.entity.Drink
 
 interface CocktailNetworkDataSource {
-    val downloadedCocktailRecipes: LiveData<CocktailsResponse>
-
-    suspend fun fetchCocktailRecipes(
-        filter: String
-    )
+    suspend fun getCocktailRecipes(filter: String): List<Drink>
 }
