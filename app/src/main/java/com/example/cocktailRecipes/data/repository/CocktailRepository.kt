@@ -5,8 +5,8 @@ import com.example.cocktailRecipes.data.database.entity.DetailedCocktailRecipe
 import com.example.cocktailRecipes.data.database.entity.Drink
 
 interface CocktailRepository {
-    val cocktails: LiveData<List<Drink>>
+    val cocktails: LiveData<DrinksResponse>
     suspend fun refreshCocktails()
-    suspend fun getCocktailRecipes(): LiveData<out List<Drink>>
-    suspend fun getDetailedCocktailRecipe(recipeId: Int): LiveData<DetailedCocktailRecipe>
+    fun getCocktailRecipes(): LiveData<out List<Drink>>
+    fun getDetailedCocktailRecipe(recipeId: Int): LiveData<DetailedCocktailRecipe>
 }

@@ -3,9 +3,8 @@ package com.example.cocktailRecipes.ui.cocktailRecipes.list
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cocktailRecipes.data.database.entity.Drink
 import com.example.cocktailRecipes.data.repository.CocktailRepository
-import com.example.cocktailRecipes.internal.lazyDeferred
+import com.example.cocktailRecipes.data.repository.DrinksResponse
 import kotlinx.coroutines.launch
 
 class CocktailsViewModel(
@@ -16,7 +15,7 @@ class CocktailsViewModel(
         viewModelScope.launch { cocktailRepository.refreshCocktails() }
     }
 
-    fun cocktails(): LiveData<List<Drink>> {
+    fun cocktails(): LiveData<DrinksResponse> {
         return cocktailRepository.cocktails
     }
 }

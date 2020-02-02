@@ -8,7 +8,8 @@ class CocktailDetailedViewModel(
     private val cocktailRepository: CocktailRepository,
     private val recipeId: Int
 ) : ViewModel() {
-    val cocktailDetailedRecipe by lazyDeferred {
+
+    val cocktailDetailedRecipe by lazy {
         cocktailRepository.getDetailedCocktailRecipe(recipeId)
     }
 }

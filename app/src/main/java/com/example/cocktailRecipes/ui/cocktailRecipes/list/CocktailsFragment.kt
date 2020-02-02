@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktailRecipes.R
-import com.example.cocktailRecipes.data.database.entity.Drink
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.cocktails_fragment.*
@@ -39,20 +38,15 @@ class CocktailsFragment : Fragment(), KodeinAware {
         viewModel =
             ViewModelProviders.of(this, viewModelFactory).get(CocktailsViewModel::class.java)
 
-        viewModel.cocktails().observe(this@CocktailsFragment, Observer { recipes ->
+        viewModel.cocktails().observe(this@CocktailsFragment, Observer {
+            val recipes = it.getDrinksAsListItems()
             if (recipes.isNullOrEmpty()) {
                 errorMessage.text = "No Cocktail Recipes Were found with chosen filters"
                 return@Observer
             }
             errorMessage.text = ""
-            initRecyclerView(recipes.toCocktailRecipeItems())
+            initRecyclerView(recipes)
         })
-    }
-
-    private fun List<Drink>.toCocktailRecipeItems(): List<CocktailRecipeItem> {
-        return this.map {
-            CocktailRecipeItem(it)
-        }
     }
 
     private fun initRecyclerView(items: List<CocktailRecipeItem>) {

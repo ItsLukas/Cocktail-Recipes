@@ -1,22 +1,17 @@
 package com.example.cocktailRecipes.ui.cocktailRecipes.detailed
 
-import androidx.lifecycle.ViewModelProviders
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-
-
-import com.example.cocktailRecipes.R
+import androidx.lifecycle.ViewModelProviders
 import com.example.cocktailRecipes.databinding.CocktailDetailedFragmentBinding
 import com.example.cocktailRecipes.internal.GlideApp
 import kotlinx.android.synthetic.main.cocktail_detailed_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.factory
@@ -47,20 +42,16 @@ class CocktailDetailedFragment : Fragment(), KodeinAware {
         viewModel = ViewModelProviders.of(this, viewModelFactoryInstanceFactory(recipeId!!))
             .get(CocktailDetailedViewModel::class.java)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val cocktailDetailedRecipe = viewModel.cocktailDetailedRecipe.await()
+        viewModel.cocktailDetailedRecipe.observe(this@CocktailDetailedFragment, Observer { recipe ->
+            if (recipe == null) return@Observer
 
-            cocktailDetailedRecipe.observe(this@CocktailDetailedFragment, Observer { recipe ->
-                if (recipe == null) return@Observer
+            binding.recipe = recipe
 
-                binding.recipe = recipe
-
-                (activity as? AppCompatActivity)?.supportActionBar?.title = recipe.strDrink
-                GlideApp.with(this@CocktailDetailedFragment)
-                    .load(recipe.strDrinkThumb)
-                    .into(cocktailDetailedImage)
-            })
-        }
+            (activity as? AppCompatActivity)?.supportActionBar?.title = recipe.strDrink
+            GlideApp.with(this@CocktailDetailedFragment)
+                .load(recipe.strDrinkThumb)
+                .into(cocktailDetailedImage)
+        })
     }
 
 }
